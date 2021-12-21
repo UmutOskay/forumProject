@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AnswerRepo extends JpaRepository<Answer, Integer> {
+    void deleteAnswerById(Integer answer_id);
 }

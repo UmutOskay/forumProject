@@ -26,21 +26,20 @@ public class Question {
         this.description = description;
     }
 
-   /* @OneToMany(mappedBy = "question",cascade = CascadeType.ALL)
-    private List<Comment> comments = new ArrayList<>();*/
 
-   /* @OneToMany(mappedBy = "question",cascade = CascadeType.ALL)
-    private List<Answer> answers = new ArrayList<>();*/
-    @ManyToOne
-    private Answer answer;
-    @ManyToOne
-    private Comment comment;
+
+    @OneToMany(mappedBy = "question",cascade = CascadeType.ALL)
+    private List<Answer> answers = new ArrayList<>();
+
+
+    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
+    private List<Comment> comment = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(name = "rel_question_tag",
-            joinColumns = @JoinColumn(name = "tag_id",
+            joinColumns = @JoinColumn(name = "question_id",
                     referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "question_id",
+            inverseJoinColumns = @JoinColumn(name = "tag_id",
                     referencedColumnName = "id"))
     private List<Tag> tags = new ArrayList<Tag>();
 
@@ -48,37 +47,36 @@ public class Question {
         return title;
     }
 
-    public Answer getAnswer() {
-        return answer;
+    public String getTag() {
+        return tag;
     }
 
-    public void setAnswer(Answer answer) {
-        this.answer = answer;
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
+    }
+
+    public List<Tag> getTags() {
+        return tags;
     }
 
     public void setTitle(String title) {
         this.title = title;
     }
 
-    /*public String getTags() {
-        return tags;
-    }
-
-    public void setTags(String tags) {
-        this.tags = tags;
-    } */
-
-    /*public String getTags() {
-        return tags;
-    } */
 
     public void setTags(List<Tag> tags) {
         this.tags = tags;
     }
 
-   /* public void setTags(String tags) {
-        this.tags = tags;
-    } */
+
 
     public String getOwner() {
         return owner;
@@ -104,28 +102,14 @@ public class Question {
         this.viewCount = viewCount;
     }
 
-   /* public List<Comment> getComments() {
-        return comments;
-    }
 
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
-    } */
-
-    public Comment getComment() {
+    public List<Comment> getComment() {
         return comment;
     }
 
-    public void setComment(Comment comment) {
+    public void setComment(List<Comment> comment) {
         this.comment = comment;
     }
-/* public List<Answer> getAnswers() {
-        return answers;
-    }
-
-    public void setAnswers(List<Answer> answers) {
-        this.answers = answers;
-    }*/
 
     public int getId() {
         return id;

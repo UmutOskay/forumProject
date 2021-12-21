@@ -9,5 +9,5 @@ public interface QuestionService {
     List<Question> getAll();
     Question getById(int id);
 
-    void deleteById(int id);
+    void deleteQuestionById(int question_id);
 }
