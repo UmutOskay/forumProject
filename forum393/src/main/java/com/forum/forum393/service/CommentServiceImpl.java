@@ -15,28 +15,31 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public Comment save(Comment comment) {
-        return null;
+        return commentRepo.save(comment);
     }
 
-    public void deleteCommentById(Integer id){
+    public void deleteCommentById(Integer id) {
         commentRepo.deleteCommentById(id);
     }
-    public void deleteCommentWithQuestionId(Integer question_id){
+
+    public void deleteCommentWithQuestionId(Integer question_id) {
         commentRepo.deleteCommentWithQuestionQuestionId(question_id);
 
     }
-    public void deleteCommentWithAnswerId(Integer answer_id){
+
+    public void deleteCommentWithAnswerId(Integer answer_id) {
         commentRepo.deleteCommentWithQuestionAnswerId(answer_id);
 
     }
-/*
+
     @Override
-    public List<Comment> getByInstructorId(int id) {
-        return null;
+    public List<Comment> getByQuestionId(int id) {
+
+        return commentRepo.getByQuestionId(id);
     }
 
     @Override
-    public Comment getByInstructorIdAndCourseId(int instructorId, int courseId) {
-        return null;
-    } */
+    public Comment getByQuestionIdAndCommentId(int questionId, int commentId) {
+        return commentRepo.getByQuestionIdAndCommentId(questionId,commentId);
+    }
 }

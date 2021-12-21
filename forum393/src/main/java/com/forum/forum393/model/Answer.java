@@ -11,6 +11,19 @@ public class Answer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private int id;
+    private int voteCount;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public int getVoteCount() {
+        return voteCount;
+    }
+
+    public void setVoteCount(int voteCount) {
+        this.voteCount = voteCount;
+    }
 
     @ManyToOne
     @JoinColumn(name = "question_id")
@@ -20,21 +33,27 @@ public class Answer {
 
 
     @OneToMany(mappedBy ="answer", cascade = CascadeType.ALL)
-    private List<Comment> answer = new ArrayList<>();
+    private List<Comment> comments = new ArrayList<>();
 
-
-    public List<Comment> getAnswer() {
-        return answer;
+    public User getUser() {
+        return user;
     }
 
-    public void setAnswer(List<Comment> answer) {
-        this.answer = answer;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    /*public List<Question> getQuestions() {
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+/*public List<Question> getQuestions() {
         return questions;
     }
-
     public void setQuestions(List<Question> questions) {
         this.questions = questions;
     }*/
@@ -54,7 +73,6 @@ public class Answer {
     /*public Question getQuestion() {
         return question;
     }
-
     public void setQuestion(Question question) {
         this.question = question;
     } */

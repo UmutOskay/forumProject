@@ -14,12 +14,12 @@ public class AnswerServiceImpl implements AnswerService{
     AnswerRepo answerRepo;
     @Override
     public Answer save(Answer answer) {
-        return null;
+        return answerRepo.save(answer);
     }
 
     @Override
-    public Answer getByAnswerId(int id) {
-        return null;
+    public List<Answer> getByAnswerId(int id) {
+        return answerRepo.getByAnswerId(id);
         /*AnswerDTO dto = fgbfdg;
         list.foreach((item) -> {
             dto.question = item.ques
@@ -29,6 +29,11 @@ public class AnswerServiceImpl implements AnswerService{
     @Override
     public void deleteAnswerById(Integer answer_id) {
         answerRepo.deleteAnswerById(answer_id);
+    }
+
+    @Override
+    public Answer getByQuestionIdAndAnswerId(int questionId, int answerId) {
+        return answerRepo.getByQuestionIdAndAnswerId(questionId,answerId);
     }
 
 

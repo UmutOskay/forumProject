@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Repository
 public interface CommentRepo extends JpaRepository<Comment, Integer> {
@@ -18,4 +19,7 @@ public interface CommentRepo extends JpaRepository<Comment, Integer> {
     void deleteCommentWithQuestionAnswerId(Integer answer_id);
 
     void deleteCommentById(Integer id);
+
+    List<Comment> getByQuestionId(int id);
+    Comment getByQuestionIdAndCommentId(int questionId,int commentId);
 }

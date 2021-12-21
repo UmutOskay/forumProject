@@ -12,11 +12,32 @@ public class Question {
     @Column(name = "id", nullable = false)
     private int id;
     private String title;
-    private String tag;
     private String owner;
     private String askedDate;
     private int viewCount;
     private String description;
+    private int answerCount;
+    private int voteCount;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public int getAnswerCount() {
+        return answerCount;
+    }
+
+    public void setAnswerCount(int answerCount) {
+        this.answerCount = answerCount;
+    }
+
+    public int getVoteCount() {
+        return voteCount;
+    }
+
+    public void setVoteCount(int voteCount) {
+        this.voteCount = voteCount;
+    }
 
     public String getDescription() {
         return description;
@@ -29,11 +50,13 @@ public class Question {
 
 
     @OneToMany(mappedBy = "question",cascade = CascadeType.ALL)
+    @JoinColumn(name = "answers_id")
     private List<Answer> answers = new ArrayList<>();
 
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
-    private List<Comment> comment = new ArrayList<>();
+    @JoinColumn(name = "comments_id")
+    private List<Comment> comments = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(name = "rel_question_tag",
@@ -43,16 +66,16 @@ public class Question {
                     referencedColumnName = "id"))
     private List<Tag> tags = new ArrayList<Tag>();
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public String getTitle() {
         return title;
-    }
-
-    public String getTag() {
-        return tag;
-    }
-
-    public void setTag(String tag) {
-        this.tag = tag;
     }
 
     public List<Answer> getAnswers() {
@@ -103,12 +126,12 @@ public class Question {
     }
 
 
-    public List<Comment> getComment() {
-        return comment;
+    public List<Comment> getComments() {
+        return comments;
     }
 
-    public void setComment(List<Comment> comment) {
-        this.comment = comment;
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 
     public int getId() {

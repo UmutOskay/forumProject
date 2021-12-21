@@ -15,22 +15,27 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public Question save(Question question) {
-        return null;
+        return questionRepo.save(question);
     }
 
 
     public List<Question> getAll() {
-        return null;
+        return questionRepo.findAll();
     }
 
 
     public Question getById(int id) {
-        return null;
+        return questionRepo.getById(id);
     }
 
 
     public void deleteQuestionById(int question_id) {
         questionRepo.deleteQuestionById(question_id);
+    }
+
+    @Override
+    public void deleteById(int id) {
+        questionRepo.deleteById(id);
     }
 
 

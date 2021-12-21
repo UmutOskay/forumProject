@@ -14,5 +14,7 @@ public interface CommentService {
     void deleteCommentWithQuestionId(Integer question_id);
     void deleteCommentWithAnswerId(Integer answer_id);
 
-    }
+    List<Comment> getByQuestionId(int id);
 
+    Comment getByQuestionIdAndCommentId(int questionId, int commentId);
+}

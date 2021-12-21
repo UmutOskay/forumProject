@@ -10,4 +10,6 @@ public interface QuestionService {
     Question getById(int id);
 
     void deleteQuestionById(int question_id);
+
+    void deleteById(int id);
 }

@@ -11,8 +11,10 @@ import java.util.List;
 
 public interface AnswerService {
 
-    public Answer save(Answer answer);
-    Answer getByAnswerId(int id);
+    Answer save(Answer answer);
+    List<Answer> getByAnswerId(int id);
     void deleteAnswerById(Integer answer_id);
+    Answer getByQuestionIdAndAnswerId(int questionId,int answerId);
+
 
 }

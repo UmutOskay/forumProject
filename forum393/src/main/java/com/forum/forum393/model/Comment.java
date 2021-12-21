@@ -1,8 +1,6 @@
 package com.forum.forum393.model;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "T_COMMENT")
@@ -16,13 +14,25 @@ public class Comment {
     private String date;
 
 
-   @ManyToOne(cascade = CascadeType.ALL)
-   private Question question;
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Question question;
 
 
     @ManyToOne
     @JoinColumn(name = "answer_id")
     private Answer answer;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Answer getAnswer() {
         return answer;
