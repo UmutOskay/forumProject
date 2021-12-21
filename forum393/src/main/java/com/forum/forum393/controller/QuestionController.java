@@ -26,11 +26,13 @@ public class QuestionController {
 
     @GetMapping
     public List<Question> getAll(){
+
         return questionService.getAll();
     }
 
     @GetMapping("/{question-id}")
     public Question getQuestionById(@PathVariable("question-id") int id){
+
         return questionService.getById(id);
     }
     @GetMapping("/{question-id}/answers")

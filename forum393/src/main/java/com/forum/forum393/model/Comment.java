@@ -15,19 +15,31 @@ public class Comment {
     private String writer;
     private String date;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+   /* @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "question_id")
-    private Question question;
+    private Question question; */
+   @OneToMany(mappedBy = "comment", cascade = CascadeType.ALL)
+   private List<Question> questions = new ArrayList<Question>();
 
-    @ManyToMany(mappedBy = "answer", cascade = CascadeType.ALL)
-    private List<Answer> answers = new ArrayList<>();
+    @OneToMany(mappedBy = "comment",cascade = CascadeType.ALL)
+    private List<Answer> answers = new ArrayList<Answer>();
+   /* @ManyToMany(mappedBy = "answer", cascade = CascadeType.ALL)
+    private List<Answer> answers = new ArrayList<>(); */
 
-    public Question getQuestion() {
+    /*public Question getQuestion() {
         return question;
     }
 
     public void setQuestion(Question question) {
         this.question = question;
+    } */
+
+    public List<Question> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(List<Question> questions) {
+        this.questions = questions;
     }
 
     public String getText() {
