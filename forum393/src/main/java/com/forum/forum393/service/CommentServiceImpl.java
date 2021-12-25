@@ -11,13 +11,22 @@ import java.util.List;
 public class CommentServiceImpl implements CommentService {
     @Autowired
     CommentRepo commentRepo;
-
-
     @Override
     public Comment save(Comment comment) {
         return commentRepo.save(comment);
     }
 
+    @Override
+    public List<Comment> getByQuestionId(int id) {
+
+        return commentRepo.getByQuestionId(id);
+    }
+
+    @Override
+    public Comment getByQuestionIdAndCommentId(int questionId, int commentId) {
+        return commentRepo.getByQuestionIdAndCommentId(questionId,commentId);
+    }
+/*
     public void deleteCommentById(Integer id) {
         commentRepo.deleteCommentById(id);
     }
@@ -32,14 +41,7 @@ public class CommentServiceImpl implements CommentService {
 
     }
 
-    @Override
-    public List<Comment> getByQuestionId(int id) {
 
-        return commentRepo.getByQuestionId(id);
-    }
 
-    @Override
-    public Comment getByQuestionIdAndCommentId(int questionId, int commentId) {
-        return commentRepo.getByQuestionIdAndCommentId(questionId,commentId);
-    }
+    */
 }

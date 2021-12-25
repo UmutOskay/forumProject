@@ -17,6 +17,13 @@ public class Answer {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @ManyToOne
+    @JoinColumn(name = "question_id")
+    private Question question;
+
+    @OneToMany(mappedBy ="answer", cascade = CascadeType.ALL)
+    private List<Comment> comments = new ArrayList<>();
+
     public int getVoteCount() {
         return voteCount;
     }
@@ -24,16 +31,6 @@ public class Answer {
     public void setVoteCount(int voteCount) {
         this.voteCount = voteCount;
     }
-
-    @ManyToOne
-    @JoinColumn(name = "question_id")
-    private Question question;
-   /* @OneToMany(mappedBy = "answer", cascade = CascadeType.ALL)
-    private List<Question> questions = new ArrayList<Question>(); */
-
-
-    @OneToMany(mappedBy ="answer", cascade = CascadeType.ALL)
-    private List<Comment> comments = new ArrayList<>();
 
     public User getUser() {
         return user;
@@ -51,13 +48,6 @@ public class Answer {
         this.comments = comments;
     }
 
-/*public List<Question> getQuestions() {
-        return questions;
-    }
-    public void setQuestions(List<Question> questions) {
-        this.questions = questions;
-    }*/
-
     public Question getQuestion() {
         return question;
     }
@@ -65,17 +55,6 @@ public class Answer {
     public void setQuestion(Question question) {
         this.question = question;
     }
-
-  /*  public void setAnswer(List<Comment> answer) {
-        this.answer = answer;
-    }
-*/
-    /*public Question getQuestion() {
-        return question;
-    }
-    public void setQuestion(Question question) {
-        this.question = question;
-    } */
 
     public int getId() {
         return id;

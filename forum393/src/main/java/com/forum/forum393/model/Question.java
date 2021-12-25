@@ -12,11 +12,15 @@ public class Question {
     @Column(name = "id", nullable = false)
     private int id;
     private String title;
-    private String owner;
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
+    private User owner;
     private String askedDate;
     private int viewCount;
     private String description;
+    @Column(name = "answerCount")
     private int answerCount;
+    @Column(name = "voteCount")
     private int voteCount;
 
     @ManyToOne
@@ -50,12 +54,12 @@ public class Question {
 
 
     @OneToMany(mappedBy = "question",cascade = CascadeType.ALL)
-    @JoinColumn(name = "answers_id")
+  //  @JoinColumn(name = "answers_id")
     private List<Answer> answers = new ArrayList<>();
 
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
-    @JoinColumn(name = "comments_id")
+ //   @JoinColumn(name = "comments_id")
     private List<Comment> comments = new ArrayList<>();
 
     @ManyToMany
@@ -101,11 +105,11 @@ public class Question {
 
 
 
-    public String getOwner() {
+    public User getOwner() {
         return owner;
     }
 
-    public void setOwner(String owner) {
+    public void setOwner(User owner) {
         this.owner = owner;
     }
 

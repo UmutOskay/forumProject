@@ -10,11 +10,14 @@ public interface CommentService {
 
 
     public Comment save(Comment comment);
+    List<Comment> getByQuestionId(int id);
+    Comment getByQuestionIdAndCommentId(int questionId, int commentId);
+/*
     void deleteCommentById(Integer id);
     void deleteCommentWithQuestionId(Integer question_id);
     void deleteCommentWithAnswerId(Integer answer_id);
 
-    List<Comment> getByQuestionId(int id);
 
-    Comment getByQuestionIdAndCommentId(int questionId, int commentId);
+
+    */
 }

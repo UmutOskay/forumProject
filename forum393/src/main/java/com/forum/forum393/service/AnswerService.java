@@ -17,4 +17,5 @@ public interface AnswerService {
     Answer getByQuestionIdAndAnswerId(int questionId,int answerId);
 
 
+    List<Answer> getByQuestionId(int id);
 }

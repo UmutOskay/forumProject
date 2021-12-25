@@ -11,13 +11,14 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private int id;
+    private String name;
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
-    @JoinColumn(name = "answers_id")
+  //  @JoinColumn(name = "answers_id")
     private List<Answer> answers = new ArrayList<>();
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
-    @JoinColumn(name = "questions_id")
+  //  @JoinColumn(name = "questions_id")
     private List<Question> questions = new ArrayList<>();
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
@@ -53,5 +54,20 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                '}';
     }
 }

@@ -10,7 +10,10 @@ public class Comment {
     @Column(name = "id", nullable = false)
     private int id;
     private String text;
-    private String writer;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "writer_id")
+    private User writer;
     private String date;
 
 
@@ -18,11 +21,11 @@ public class Comment {
     private Question question;
 
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "answer_id")
     private Answer answer;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User user;
 
@@ -58,11 +61,11 @@ public class Comment {
         this.text = text;
     }
 
-    public String getWriter() {
+    public User getWriter() {
         return writer;
     }
 
-    public void setWriter(String writer) {
+    public void setWriter(User writer) {
         this.writer = writer;
     }
 

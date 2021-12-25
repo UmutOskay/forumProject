@@ -18,20 +18,29 @@ public class AnswerServiceImpl implements AnswerService{
     }
 
     @Override
+    public List<Answer> getByQuestionId(int id) {
+
+        return answerRepo.getByQuestionId(id);
+    }
+
+    @Override
     public List<Answer> getByAnswerId(int id) {
-        return answerRepo.getByAnswerId(id);
-        /*AnswerDTO dto = fgbfdg;
+      return null;
+        //  return answerRepo.getByAnswerId(id);
+      /*  AnswerDTO dto = fgbfdg;
         list.foreach((item) -> {
             dto.question = item.ques
         })*/
-    }
+        }
+
+
 
     @Override
     public void deleteAnswerById(Integer answer_id) {
         answerRepo.deleteAnswerById(answer_id);
     }
 
-    @Override
+   @Override
     public Answer getByQuestionIdAndAnswerId(int questionId, int answerId) {
         return answerRepo.getByQuestionIdAndAnswerId(questionId,answerId);
     }
