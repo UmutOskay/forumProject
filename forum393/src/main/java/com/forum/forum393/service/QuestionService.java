@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface QuestionService {
     public Question save(Question question);
-    List<Question> getAll();
+    List<QuestionDTO> getAll();
     QuestionDTO getById(int id);
 
     void deleteQuestionById(int question_id);

@@ -1,12 +1,12 @@
 package com.forum.forum393.controller;
 
+import com.forum.forum393.dto.CommentDTO;
+import com.forum.forum393.model.Answer;
 import com.forum.forum393.model.Comment;
+import com.forum.forum393.model.Question;
 import com.forum.forum393.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,13 +16,21 @@ public class CommentController {
     @Autowired
     CommentService commentService;
 
-    @GetMapping("/{question-id}/comments")
-    public List<Comment> getCommentsByQuestionId(@PathVariable("question-id") int id){
-        return commentService.getByQuestionId(id);
+    @GetMapping
+    public List<CommentDTO> getAll(){
+
+        return commentService.getAll();
     }
 
-    @GetMapping("/{question-id}/comments/{comment-id}")
-    public Comment getCommentsByQuestionId(@PathVariable("question-id") int questionId, @PathVariable("comment-id") int commentId){
-        return commentService.getByQuestionIdAndCommentId(questionId, commentId);
+    @DeleteMapping("/{comment-id}")
+    public void deleteById(@PathVariable("comment-id") int id){
+        commentService.deleteById(id);
+    }
+
+
+
+    @PostMapping
+    public Comment saveComment(@RequestBody Comment data){
+        return commentService.save(data);
     }
 }

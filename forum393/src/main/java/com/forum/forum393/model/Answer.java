@@ -1,5 +1,7 @@
 package com.forum.forum393.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,9 +19,11 @@ public class Answer {
     @JoinColumn(name = "user_id")
     private User user;
 
+
     @ManyToOne
     @JoinColumn(name = "question_id")
     private Question question;
+
 
     @OneToMany(mappedBy ="answer", cascade = CascadeType.ALL)
     private List<Comment> comments = new ArrayList<>();

@@ -1,11 +1,13 @@
 package com.forum.forum393.service;
 
 import com.forum.forum393.dto.QuestionDTO;
+import com.forum.forum393.mapper.QuestionMapper;
 import com.forum.forum393.model.Question;
 import com.forum.forum393.repository.QuestionRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -22,17 +24,21 @@ public class QuestionServiceImpl implements QuestionService {
 
 
 
-    public List<Question> getAll() {
-        return questionRepo.findAll();
+    public List<QuestionDTO> getAll() {
+        List<Question> questions = questionRepo.findAll();
+        List<QuestionDTO> qDtoList;
+        qDtoList = QuestionMapper.INSTANCE.questionListToQuestionDTOList(questions);
+        return qDtoList;
     }
 
 
     public QuestionDTO getById(int id) {
+
         Question q = questionRepo.getById(id);
-        QuestionDTO qDto = new QuestionDTO();
-        qDto.setId(q.getId());
-        qDto.setTitle(q.getTitle());
-        qDto.setDescription(q.getDescription());
+
+
+        QuestionDTO qDto;
+        qDto = QuestionMapper.INSTANCE.questionToQuestionDTO(q);
         return qDto;
     }
 

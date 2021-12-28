@@ -1,5 +1,6 @@
 package com.forum.forum393.service;
 
+import com.forum.forum393.dto.AnswerDTO;
 import com.forum.forum393.model.Answer;
 import com.forum.forum393.model.Comment;
 import com.forum.forum393.repository.AnswerRepo;
@@ -18,4 +19,6 @@ public interface AnswerService {
 
 
     List<Answer> getByQuestionId(int id);
+
+    List<AnswerDTO> getAll();
 }

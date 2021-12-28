@@ -4,6 +4,7 @@ import com.forum.forum393.model.*;
 import com.forum.forum393.service.AnswerService;
 import com.forum.forum393.service.CommentService;
 import com.forum.forum393.service.QuestionService;
+import com.forum.forum393.service.TagService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,6 +24,9 @@ class Forum393ApplicationTests {
 
 	@Autowired
 	CommentService commentService;
+
+	@Autowired
+	TagService tagService;
 
 
 
@@ -110,7 +114,11 @@ class Forum393ApplicationTests {
 		user.setQuestions(questions);
 
 		Tag tag = new Tag();
+		Tag tag2 = new Tag();
+		tag.setId(1);
 		tag.setQuestions(questions);
+		tag2.setId(2);
+		tag2.setQuestions(questions);
 
 
 
@@ -121,6 +129,8 @@ class Forum393ApplicationTests {
 		questionService.save(question2);
 	//	answerService.save(answer);
 	//	commentService.save(comment);
+		tagService.save(tag);
+
 
 
 	}

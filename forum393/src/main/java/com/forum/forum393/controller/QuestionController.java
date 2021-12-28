@@ -4,9 +4,11 @@ import com.forum.forum393.dto.QuestionDTO;
 import com.forum.forum393.model.Answer;
 import com.forum.forum393.model.Comment;
 import com.forum.forum393.model.Question;
+import com.forum.forum393.model.Tag;
 import com.forum.forum393.service.AnswerService;
 import com.forum.forum393.service.CommentService;
 import com.forum.forum393.service.QuestionService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,8 +28,9 @@ public class QuestionController {
     CommentService commentService;
 
 
+
     @GetMapping
-    public List<Question> getAll(){
+    public List<QuestionDTO> getAll(){
 
         return questionService.getAll();
     }
@@ -50,9 +53,17 @@ public class QuestionController {
         return questionService.getById(id);
     }
 
+
+
     @GetMapping("/{question-id}/answers/{answer-id}")
     public Answer getAnswersByQuestionId(@PathVariable("question-id") int questionId, @PathVariable("answer-id") int answerId){
         return answerService.getByQuestionIdAndAnswerId(questionId, answerId);
+    }
+
+
+    @GetMapping("/{question-id}/comments/{comment-id}")
+    public Comment getCommentsByQuestionId(@PathVariable("question-id") int questionId, @PathVariable("comment-id") int commentId){
+        return commentService.getByQuestionIdAndCommentId(questionId, commentId);
     }
 
     @DeleteMapping("/{question-id}")

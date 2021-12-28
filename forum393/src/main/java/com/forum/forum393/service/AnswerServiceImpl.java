@@ -1,7 +1,12 @@
 package com.forum.forum393.service;
 
+import com.forum.forum393.dto.AnswerDTO;
+import com.forum.forum393.dto.QuestionDTO;
+import com.forum.forum393.mapper.AnswerMapper;
+import com.forum.forum393.mapper.QuestionMapper;
 import com.forum.forum393.model.Answer;
 import com.forum.forum393.model.Comment;
+import com.forum.forum393.model.Question;
 import com.forum.forum393.repository.AnswerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +26,14 @@ public class AnswerServiceImpl implements AnswerService{
     public List<Answer> getByQuestionId(int id) {
 
         return answerRepo.getByQuestionId(id);
+    }
+
+    @Override
+    public List<AnswerDTO> getAll() {
+        List<Answer> answers = answerRepo.findAll();
+        List<AnswerDTO> answersDtoList;
+        answersDtoList = AnswerMapper.INSTANCE.answerListToAnswerDTOList(answers);
+        return answersDtoList;
     }
 
     @Override
