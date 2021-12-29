@@ -10,7 +10,7 @@ public class AnswerDTO {
 
     private int id;
     private int voteCount;
-    private User user;
+    private UserDTO user;
     private Question question;
     private List<Comment> comments;
 
@@ -30,11 +30,11 @@ public class AnswerDTO {
         this.voteCount = voteCount;
     }
 
-    public User getUser() {
+    public UserDTO getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserDTO userDTO) {
         this.user = user;
     }
 

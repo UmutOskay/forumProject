@@ -4,9 +4,6 @@ import com.forum.forum393.model.Answer;
 import com.forum.forum393.model.Question;
 import com.forum.forum393.model.User;
 
-import javax.persistence.CascadeType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 public class CommentDTO {
 

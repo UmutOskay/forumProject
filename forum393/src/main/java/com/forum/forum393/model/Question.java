@@ -12,9 +12,6 @@ public class Question {
     @Column(name = "id", nullable = false)
     private int id;
     private String title;
-    @ManyToOne
-    @JoinColumn(name = "owner_id")
-    private User owner;
     private String askedDate;
     private int viewCount;
     private String description;
@@ -105,13 +102,7 @@ public class Question {
 
 
 
-    public User getOwner() {
-        return owner;
-    }
 
-    public void setOwner(User owner) {
-        this.owner = owner;
-    }
 
     public String getAskedDate() {
         return askedDate;

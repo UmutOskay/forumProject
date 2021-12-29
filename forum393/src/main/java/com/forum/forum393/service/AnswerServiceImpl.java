@@ -18,8 +18,12 @@ public class AnswerServiceImpl implements AnswerService{
     @Autowired
     AnswerRepo answerRepo;
     @Override
-    public Answer save(Answer answer) {
-        return answerRepo.save(answer);
+    public AnswerDTO save(AnswerDTO answerDTO) {
+       // return answerRepo.save(answer);
+        Answer a = AnswerMapper.INSTANCE.answerDTOToAnswer(answerDTO);
+        answerRepo.save(a);
+        answerDTO.setId(a.getId());
+        return answerDTO;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.forum.forum393.controller;
 
+import com.forum.forum393.dto.CommentDTO;
 import com.forum.forum393.dto.QuestionDTO;
 import com.forum.forum393.model.Answer;
 import com.forum.forum393.model.Comment;
@@ -62,7 +63,7 @@ public class QuestionController {
 
 
     @GetMapping("/{question-id}/comments/{comment-id}")
-    public Comment getCommentsByQuestionId(@PathVariable("question-id") int questionId, @PathVariable("comment-id") int commentId){
+    public CommentDTO getCommentsByQuestionId(@PathVariable("question-id") int questionId, @PathVariable("comment-id") int commentId){
         return commentService.getByQuestionIdAndCommentId(questionId, commentId);
     }
 
@@ -72,7 +73,7 @@ public class QuestionController {
     }
 
     @PostMapping
-    public Question saveQuestion(@RequestBody Question data){
+    public QuestionDTO saveQuestion(@RequestBody QuestionDTO data){
 
         return questionService.save(data);
     }

@@ -1,10 +1,11 @@
 package com.forum.forum393;
 
+import com.forum.forum393.dto.QuestionDTO;
 import com.forum.forum393.model.*;
+import com.forum.forum393.repository.QuestionRepo;
 import com.forum.forum393.service.AnswerService;
 import com.forum.forum393.service.CommentService;
 import com.forum.forum393.service.QuestionService;
-import com.forum.forum393.service.TagService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -26,7 +27,7 @@ class Forum393ApplicationTests {
 	CommentService commentService;
 
 	@Autowired
-	TagService tagService;
+	QuestionRepo questionRepo;
 
 
 
@@ -45,7 +46,7 @@ class Forum393ApplicationTests {
 		question.setTitle("1.soru");
 		question.setDescription("question 1");
 		question.setAskedDate("22.06.2020");
-	 //	question.setOwner(user);
+	 	question.setUser(user);
 		question.setViewCount(5);
 		question.setVoteCount(6);
 
@@ -113,6 +114,7 @@ class Forum393ApplicationTests {
 		user.setComments(comments);
 		user.setQuestions(questions);
 
+
 		Tag tag = new Tag();
 		Tag tag2 = new Tag();
 		tag.setId(1);
@@ -124,12 +126,12 @@ class Forum393ApplicationTests {
 
 
 
-
-		questionService.save(question);
-		questionService.save(question2);
+		questionRepo.save(question);
+		questionRepo.save(question2);
+	//	questionService.save(question);
+	//	questionService.save(question2);
 	//	answerService.save(answer);
 	//	commentService.save(comment);
-		tagService.save(tag);
 
 
 

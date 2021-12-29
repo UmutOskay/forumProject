@@ -12,7 +12,7 @@ import java.util.List;
 
 public interface AnswerService {
 
-    Answer save(Answer answer);
+    AnswerDTO save(AnswerDTO answer);
     List<Answer> getByAnswerId(int id);
     void deleteAnswerById(Integer answer_id);
     Answer getByQuestionIdAndAnswerId(int questionId,int answerId);

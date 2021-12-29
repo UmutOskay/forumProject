@@ -13,20 +13,20 @@ public interface CommentMapper {
     CommentMapper INSTANCE = Mappers.getMapper( CommentMapper.class );
     @Mapping(source = "id", target = "id")
     @Mapping(source = "text", target = "text")
-    @Mapping(source = "writer", target = "writer")
+  //  @Mapping(source = "writer", target = "writer")
     @Mapping(source = "date", target = "date")
-    @Mapping(source = "question", target = "question")
-    @Mapping(source = "answer", target = "answer")
-    @Mapping(source = "user", target = "user")
+  //  @Mapping(source = "question", target = "question")
+  //  @Mapping(source = "answer", target = "answer")
+  //  @Mapping(source = "user", target = "user")
     CommentDTO commentToCommentDTO(Comment comment);
 
     @Mapping(source = "id", target = "id")
     @Mapping(source = "text", target = "text")
-    @Mapping(source = "writer", target = "writer")
+  //  @Mapping(source = "writer", target = "writer")
     @Mapping(source = "date", target = "date")
-    @Mapping(source = "question", target = "question")
-    @Mapping(source = "answer", target = "answer")
-    @Mapping(source = "user", target = "user")
+  //  @Mapping(source = "question", target = "question")
+  //  @Mapping(source = "answer", target = "answer")
+   // @Mapping(source = "user", target = "user")
     List<CommentDTO> commentListToCommentDTOList(List<Comment> comment);
 
 

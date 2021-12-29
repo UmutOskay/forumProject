@@ -12,7 +12,7 @@ public interface CommentService {
 
     public Comment save(Comment comment);
     List<Comment> getByQuestionId(int id);
-    Comment getByQuestionIdAndCommentId(int questionId, int commentId);
+    CommentDTO getByQuestionIdAndCommentId(int questionId, int commentId);
 
     List<CommentDTO> getAll();
 

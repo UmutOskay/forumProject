@@ -6,7 +6,7 @@ import com.forum.forum393.model.Question;
 import java.util.List;
 
 public interface QuestionService {
-    public Question save(Question question);
+    public QuestionDTO save(QuestionDTO question);
     List<QuestionDTO> getAll();
     QuestionDTO getById(int id);
 

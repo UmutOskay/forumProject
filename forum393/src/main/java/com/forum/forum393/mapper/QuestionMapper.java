@@ -17,7 +17,7 @@ public interface QuestionMapper {
     @Mapping(source = "description", target = "description")
     @Mapping(source = "tags", target = "tags")
     @Mapping(source = "askedDate", target = "askedDate")
-    @Mapping(source = "owner", target = "askedBy")
+    @Mapping(source = "user", target = "askedBy")
     @Mapping(source = "answerCount", target = "answerCount")
     @Mapping(source = "voteCount", target = "voteCount")
     QuestionDTO questionToQuestionDTO(Question q);
@@ -26,9 +26,18 @@ public interface QuestionMapper {
     @Mapping(source = "description", target = "description")
     @Mapping(source = "tags", target = "tags")
     @Mapping(source = "askedDate", target = "askedDate")
-    @Mapping(source = "owner", target = "askedBy")
+    @Mapping(source = "user", target = "askedBy")
     @Mapping(source = "answerCount", target = "answerCount")
     @Mapping(source = "voteCount", target = "voteCount")
     List<QuestionDTO> questionListToQuestionDTOList(List<Question> q);
+
+    @Mapping(source = "title", target = "title")
+    @Mapping(source = "description", target = "description")
+    @Mapping(source = "tags", target = "tags")
+    @Mapping(source = "askedDate", target = "askedDate")
+    @Mapping(source = "askedBy", target = "user")
+    @Mapping(source = "answerCount", target = "answerCount")
+    @Mapping(source = "voteCount", target = "voteCount")
+    Question questionDTOtoQuestion(QuestionDTO questionDTO);
 }
 

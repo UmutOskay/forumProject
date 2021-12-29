@@ -16,15 +16,15 @@ public class AnswerController {
     @Autowired
     AnswerService answerService;
 
-    @GetMapping
+   /* @GetMapping
     public List<AnswerDTO> getAll(){
 
         return answerService.getAll();
-    }
+    }*/ //gerek yok
 
 
     @PostMapping
-    public Answer saveAnswer(@RequestBody Answer data){
+    public AnswerDTO saveAnswer(@RequestBody AnswerDTO data){
         return answerService.save(data);
     }
 

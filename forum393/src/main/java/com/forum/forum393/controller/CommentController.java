@@ -16,11 +16,11 @@ public class CommentController {
     @Autowired
     CommentService commentService;
 
-    @GetMapping
+   /* @GetMapping
     public List<CommentDTO> getAll(){
 
         return commentService.getAll();
-    }
+    }*/ // gerek yok
 
     @DeleteMapping("/{comment-id}")
     public void deleteById(@PathVariable("comment-id") int id){

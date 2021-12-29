@@ -28,8 +28,11 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public Comment getByQuestionIdAndCommentId(int questionId, int commentId) {
-        return commentRepo.getByQuestionIdAndCommentId(questionId,commentId);
+    public CommentDTO getByQuestionIdAndCommentId(int questionId, int commentId) {
+        Comment c = commentRepo.getByQuestionIdAndCommentId(questionId,commentId);
+        CommentDTO commentDTO;
+        commentDTO = CommentMapper.INSTANCE.commentToCommentDTO(c);
+        return commentDTO;
     }
 
     @Override

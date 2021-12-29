@@ -14,7 +14,7 @@ public class QuestionDTO {
     //characters of question description, question tags, asked date, asked by, answer count, vote count.
     private List<Tag> tags;
     private String askedDate;
-    private User askedBy;
+    private UserDTO askedBy;
     private int answerCount;
     private int voteCount;
 
@@ -34,11 +34,11 @@ public class QuestionDTO {
         this.askedDate = askedDate;
     }
 
-    public User getAskedBy() {
+    public UserDTO getAskedBy() {
         return askedBy;
     }
 
-    public void setAskedBy(User askedBy) {
+    public void setAskedBy(UserDTO askedBy) {
         this.askedBy = askedBy;
     }
 

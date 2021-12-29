@@ -17,8 +17,13 @@ public class QuestionServiceImpl implements QuestionService {
     QuestionRepo questionRepo;
 
     @Override
-    public Question save(Question question) {
-        return questionRepo.save(question);
+    public QuestionDTO save(QuestionDTO questionDTO) {
+
+        Question q = QuestionMapper.INSTANCE.questionDTOtoQuestion(questionDTO);
+        questionRepo.save(q);
+        questionDTO.setId(q.getId());
+        return questionDTO;
+
     }
 
 
