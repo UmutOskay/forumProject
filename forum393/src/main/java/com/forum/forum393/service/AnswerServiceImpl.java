@@ -27,9 +27,12 @@ public class AnswerServiceImpl implements AnswerService{
     }
 
     @Override
-    public List<Answer> getByQuestionId(int id) {
+    public List<AnswerDTO> getByQuestionId(int id) {
 
-        return answerRepo.getByQuestionId(id);
+        List<Answer> answers = answerRepo.getByQuestionId(id);
+        List<AnswerDTO> answersDTOList;
+        answersDTOList = AnswerMapper.INSTANCE.answerListToAnswerDTOList(answers);
+        return answersDTOList;
     }
 
     @Override
@@ -58,8 +61,11 @@ public class AnswerServiceImpl implements AnswerService{
     }
 
    @Override
-    public Answer getByQuestionIdAndAnswerId(int questionId, int answerId) {
-        return answerRepo.getByQuestionIdAndAnswerId(questionId,answerId);
+    public AnswerDTO getByQuestionIdAndAnswerId(int questionId, int answerId) {
+        Answer a = answerRepo.getByQuestionIdAndAnswerId(questionId,answerId);
+        AnswerDTO answerDTO;
+        answerDTO = AnswerMapper.INSTANCE.answerToAnswerDTO(a);
+        return answerDTO;
     }
 
 

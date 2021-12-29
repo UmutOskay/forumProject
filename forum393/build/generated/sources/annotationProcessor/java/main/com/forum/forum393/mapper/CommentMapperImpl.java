@@ -1,14 +1,16 @@
 package com.forum.forum393.mapper;
 
 import com.forum.forum393.dto.CommentDTO;
+import com.forum.forum393.dto.UserDTO;
 import com.forum.forum393.model.Comment;
+import com.forum.forum393.model.User;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-12-29T21:00:37+0300",
+    date = "2021-12-29T22:35:25+0300",
     comments = "version: 1.4.2.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.3.1.jar, environment: Java 11.0.13 (Oracle Corporation)"
 )
 public class CommentMapperImpl implements CommentMapper {
@@ -24,10 +26,7 @@ public class CommentMapperImpl implements CommentMapper {
         commentDTO.setId( comment.getId() );
         commentDTO.setText( comment.getText() );
         commentDTO.setDate( comment.getDate() );
-        commentDTO.setWriter( comment.getWriter() );
-        commentDTO.setQuestion( comment.getQuestion() );
-        commentDTO.setAnswer( comment.getAnswer() );
-        commentDTO.setUser( comment.getUser() );
+        commentDTO.setWriter( userToUserDTO( comment.getWriter() ) );
 
         return commentDTO;
     }
@@ -44,5 +43,18 @@ public class CommentMapperImpl implements CommentMapper {
         }
 
         return list;
+    }
+
+    protected UserDTO userToUserDTO(User user) {
+        if ( user == null ) {
+            return null;
+        }
+
+        UserDTO userDTO = new UserDTO();
+
+        userDTO.setId( user.getId() );
+        userDTO.setName( user.getName() );
+
+        return userDTO;
     }
 }

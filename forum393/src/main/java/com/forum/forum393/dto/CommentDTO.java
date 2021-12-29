@@ -9,11 +9,11 @@ public class CommentDTO {
 
     private int id;
     private String text;
-    private User writer;
+    private UserDTO writer;
     private String date;
-    private Question question;
-    private Answer answer;
-    private User user;
+    //  private Question question;
+    //private Answer answer;
+    //private User user;
 
     public int getId() {
         return id;
@@ -31,11 +31,11 @@ public class CommentDTO {
         this.text = text;
     }
 
-    public User getWriter() {
+    public UserDTO getWriter() {
         return writer;
     }
 
-    public void setWriter(User writer) {
+    public void setWriter(UserDTO writer) {
         this.writer = writer;
     }
 
@@ -47,7 +47,7 @@ public class CommentDTO {
         this.date = date;
     }
 
-    public Question getQuestion() {
+   /* public Question getQuestion() {
         return question;
     }
 
@@ -69,5 +69,5 @@ public class CommentDTO {
 
     public void setUser(User user) {
         this.user = user;
-    }
+    }*/
 }

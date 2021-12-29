@@ -11,7 +11,7 @@ public interface CommentService {
 
 
     public Comment save(Comment comment);
-    List<Comment> getByQuestionId(int id);
+    List<CommentDTO> getByQuestionId(int id);
     CommentDTO getByQuestionIdAndCommentId(int questionId, int commentId);
 
     List<CommentDTO> getAll();

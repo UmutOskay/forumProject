@@ -22,9 +22,12 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public List<Comment> getByQuestionId(int id) {
+    public List<CommentDTO> getByQuestionId(int id) {
 
-        return commentRepo.getByQuestionId(id);
+        List<Comment> comments = commentRepo.getByQuestionId(id);
+        List<CommentDTO> commentDTOList;
+        commentDTOList = CommentMapper.INSTANCE.commentListToCommentDTOList(comments);
+        return commentDTOList;
     }
 
     @Override

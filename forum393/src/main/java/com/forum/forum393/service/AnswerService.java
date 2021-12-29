@@ -15,10 +15,10 @@ public interface AnswerService {
     AnswerDTO save(AnswerDTO answer);
     List<Answer> getByAnswerId(int id);
     void deleteAnswerById(Integer answer_id);
-    Answer getByQuestionIdAndAnswerId(int questionId,int answerId);
+    AnswerDTO getByQuestionIdAndAnswerId(int questionId,int answerId);
 
 
-    List<Answer> getByQuestionId(int id);
+    List<AnswerDTO> getByQuestionId(int id);
 
     List<AnswerDTO> getAll();
 }

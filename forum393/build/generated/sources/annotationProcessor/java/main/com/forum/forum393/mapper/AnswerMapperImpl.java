@@ -3,7 +3,6 @@ package com.forum.forum393.mapper;
 import com.forum.forum393.dto.AnswerDTO;
 import com.forum.forum393.dto.UserDTO;
 import com.forum.forum393.model.Answer;
-import com.forum.forum393.model.Comment;
 import com.forum.forum393.model.User;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +10,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-12-29T17:22:10+0300",
+    date = "2021-12-29T22:35:24+0300",
     comments = "version: 1.4.2.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.3.1.jar, environment: Java 11.0.13 (Oracle Corporation)"
 )
 public class AnswerMapperImpl implements AnswerMapper {
@@ -27,11 +26,6 @@ public class AnswerMapperImpl implements AnswerMapper {
         answerDTO.setId( answer.getId() );
         answerDTO.setVoteCount( answer.getVoteCount() );
         answerDTO.setUser( userToUserDTO( answer.getUser() ) );
-        answerDTO.setQuestion( answer.getQuestion() );
-        List<Comment> list = answer.getComments();
-        if ( list != null ) {
-            answerDTO.setComments( new ArrayList<Comment>( list ) );
-        }
 
         return answerDTO;
     }
@@ -61,11 +55,6 @@ public class AnswerMapperImpl implements AnswerMapper {
         answer.setId( answerDTO.getId() );
         answer.setVoteCount( answerDTO.getVoteCount() );
         answer.setUser( userDTOToUser( answerDTO.getUser() ) );
-        List<Comment> list = answerDTO.getComments();
-        if ( list != null ) {
-            answer.setComments( new ArrayList<Comment>( list ) );
-        }
-        answer.setQuestion( answerDTO.getQuestion() );
 
         return answer;
     }

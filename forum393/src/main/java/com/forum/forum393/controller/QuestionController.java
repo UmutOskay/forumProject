@@ -1,5 +1,6 @@
 package com.forum.forum393.controller;
 
+import com.forum.forum393.dto.AnswerDTO;
 import com.forum.forum393.dto.CommentDTO;
 import com.forum.forum393.dto.QuestionDTO;
 import com.forum.forum393.model.Answer;
@@ -37,13 +38,13 @@ public class QuestionController {
     }
 
     @GetMapping("/{question-id}/comments")
-    public List<Comment> getAllComments(@PathVariable ("question-id") int id){
+    public List<CommentDTO> getAllComments(@PathVariable ("question-id") int id){
 
         return commentService.getByQuestionId(id);
     }
 
     @GetMapping("/{question-id}/answers")
-    public List<Answer> getAllAnswers(@PathVariable ("question-id") int id){
+    public List<AnswerDTO> getAllAnswers(@PathVariable ("question-id") int id){
 
         return answerService.getByQuestionId(id);
     }
@@ -57,7 +58,7 @@ public class QuestionController {
 
 
     @GetMapping("/{question-id}/answers/{answer-id}")
-    public Answer getAnswersByQuestionId(@PathVariable("question-id") int questionId, @PathVariable("answer-id") int answerId){
+    public AnswerDTO getAnswersByQuestionId(@PathVariable("question-id") int questionId, @PathVariable("answer-id") int answerId){
         return answerService.getByQuestionIdAndAnswerId(questionId, answerId);
     }
 
