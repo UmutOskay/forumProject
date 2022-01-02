@@ -1,2 +1,2 @@
 # forumProject
-sample stackoverflow project without UI
+sample stackoverflow springboot project without UI
