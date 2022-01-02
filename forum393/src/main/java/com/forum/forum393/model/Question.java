@@ -1,5 +1,7 @@
 package com.forum.forum393.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,9 +19,11 @@ public class Question {
     private String description;
     @Column(name = "answerCount")
     private int answerCount;
+
     @Column(name = "voteCount")
     private int voteCount;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -59,7 +63,8 @@ public class Question {
  //   @JoinColumn(name = "comments_id")
     private List<Comment> comments = new ArrayList<>();
 
-    @ManyToMany
+    @JsonIgnore
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "rel_question_tag",
             joinColumns = @JoinColumn(name = "question_id",
                     referencedColumnName = "id"),

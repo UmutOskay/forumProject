@@ -10,7 +10,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-12-29T22:35:24+0300",
+    date = "2022-01-02T03:31:44+0300",
     comments = "version: 1.4.2.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.3.1.jar, environment: Java 11.0.13 (Oracle Corporation)"
 )
 public class AnswerMapperImpl implements AnswerMapper {
@@ -25,6 +25,7 @@ public class AnswerMapperImpl implements AnswerMapper {
 
         answerDTO.setId( answer.getId() );
         answerDTO.setVoteCount( answer.getVoteCount() );
+        answerDTO.setText( answer.getText() );
         answerDTO.setUser( userToUserDTO( answer.getUser() ) );
 
         return answerDTO;
@@ -53,6 +54,7 @@ public class AnswerMapperImpl implements AnswerMapper {
         Answer answer = new Answer();
 
         answer.setId( answerDTO.getId() );
+        answer.setText( answerDTO.getText() );
         answer.setVoteCount( answerDTO.getVoteCount() );
         answer.setUser( userDTOToUser( answerDTO.getUser() ) );
 

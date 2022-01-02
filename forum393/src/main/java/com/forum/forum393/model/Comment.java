@@ -25,7 +25,7 @@ public class Comment {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "answer_id")
     private Answer answer;
-
+/*
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User user;
@@ -36,7 +36,7 @@ public class Comment {
 
     public void setUser(User user) {
         this.user = user;
-    }
+    }*/
 
     public Answer getAnswer() {
         return answer;

@@ -10,8 +10,17 @@ public class AnswerDTO {
     private int id;
     private int voteCount;
     private UserDTO user;
+    private String text;
    /* private Question question;
     private List<Comment> comments;*/
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
 
     public int getId() {
         return id;
@@ -34,7 +43,7 @@ public class AnswerDTO {
     }
 
     public void setUser(UserDTO userDTO) {
-        this.user = user;
+        this.user = userDTO;
     }
 /*
     public Question getQuestion() {

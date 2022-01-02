@@ -14,9 +14,10 @@ public class Tag {
     @Column(name = "id", nullable = false)
     private int id;
 
-    // @JsonIgnore
+
+    @JsonIgnore
     @ManyToMany(mappedBy = "tags", cascade = CascadeType.ALL)
-    private List<Question> questions = new ArrayList<Question>();
+    private List<Question> questions = new ArrayList<>();
 
     public int getId() {
         return id;

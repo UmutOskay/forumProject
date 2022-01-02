@@ -13,6 +13,7 @@ public interface AnswerMapper {
     AnswerMapper INSTANCE = Mappers.getMapper( AnswerMapper.class );
     @Mapping(source = "id", target = "id")
     @Mapping(source = "voteCount", target = "voteCount")
+    @Mapping(source = "text", target = "text")
   //  @Mapping(source = "user", target = "user")
   //  @Mapping(source = "question", target = "question")
   //  @Mapping(source = "comments", target = "comments")
@@ -20,12 +21,14 @@ public interface AnswerMapper {
 
     @Mapping(source = "id", target = "id")
     @Mapping(source = "voteCount", target = "voteCount")
-   // @Mapping(source = "user", target = "user")
+    @Mapping(source = "text", target = "text")
+        // @Mapping(source = "user", target = "user")
    // @Mapping(source = "question", target = "question")
    // @Mapping(source = "comments", target = "comments")
     List<AnswerDTO> answerListToAnswerDTOList(List<Answer> answer);
 
     @Mapping(source = "id", target = "id")
+    @Mapping(source = "text", target = "text")
     @Mapping(source = "voteCount", target = "voteCount")
     Answer answerDTOToAnswer(AnswerDTO answerDTO);
 }

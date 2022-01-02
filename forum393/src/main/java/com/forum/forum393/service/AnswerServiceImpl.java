@@ -8,18 +8,22 @@ import com.forum.forum393.model.Answer;
 import com.forum.forum393.model.Comment;
 import com.forum.forum393.model.Question;
 import com.forum.forum393.repository.AnswerRepo;
+import com.forum.forum393.repository.QuestionRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class AnswerServiceImpl implements AnswerService{
+public class AnswerServiceImpl implements AnswerService {
     @Autowired
     AnswerRepo answerRepo;
+    @Autowired
+    QuestionRepo questionRepo;
+
     @Override
     public AnswerDTO save(AnswerDTO answerDTO) {
-       // return answerRepo.save(answer);
+        // return answerRepo.save(answer);
         Answer a = AnswerMapper.INSTANCE.answerDTOToAnswer(answerDTO);
         answerRepo.save(a);
         answerDTO.setId(a.getId());
@@ -45,14 +49,13 @@ public class AnswerServiceImpl implements AnswerService{
 
     @Override
     public List<Answer> getByAnswerId(int id) {
-      return null;
+        return null;
         //  return answerRepo.getByAnswerId(id);
       /*  AnswerDTO dto = fgbfdg;
         list.foreach((item) -> {
             dto.question = item.ques
         })*/
-        }
-
+    }
 
 
     @Override
@@ -60,11 +63,12 @@ public class AnswerServiceImpl implements AnswerService{
         answerRepo.deleteAnswerById(answer_id);
     }
 
-   @Override
+    @Override
     public AnswerDTO getByQuestionIdAndAnswerId(int questionId, int answerId) {
-        Answer a = answerRepo.getByQuestionIdAndAnswerId(questionId,answerId);
+        Answer a = answerRepo.getByQuestionIdAndAnswerId(questionId, answerId);
         AnswerDTO answerDTO;
         answerDTO = AnswerMapper.INSTANCE.answerToAnswerDTO(a);
+
         return answerDTO;
     }
 

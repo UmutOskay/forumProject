@@ -21,8 +21,8 @@ public class User {
   //  @JoinColumn(name = "questions_id")
     private List<Question> questions = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
-    private List<Comment> comments = new ArrayList<>();
+   /* @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    private List<Comment> comments = new ArrayList<>();*/
 
     public List<Answer> getAnswers() {
         return answers;
@@ -40,13 +40,13 @@ public class User {
         this.questions = questions;
     }
 
-    public List<Comment> getComments() {
+  /*  public List<Comment> getComments() {
         return comments;
     }
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
-    }
+    }*/
 
     public int getId() {
         return id;
@@ -64,10 +64,5 @@ public class User {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                '}';
-    }
+
 }

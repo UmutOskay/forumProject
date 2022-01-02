@@ -14,6 +14,15 @@ public class Answer {
     @Column(name = "id", nullable = false)
     private int id;
     private int voteCount;
+    private String text;
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
 
     @ManyToOne
     @JoinColumn(name = "user_id")
