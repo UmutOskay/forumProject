@@ -1,12 +1,8 @@
 package com.forum.forum393.service;
 
 import com.forum.forum393.dto.AnswerDTO;
-import com.forum.forum393.dto.QuestionDTO;
 import com.forum.forum393.mapper.AnswerMapper;
-import com.forum.forum393.mapper.QuestionMapper;
 import com.forum.forum393.model.Answer;
-import com.forum.forum393.model.Comment;
-import com.forum.forum393.model.Question;
 import com.forum.forum393.repository.AnswerRepo;
 import com.forum.forum393.repository.QuestionRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +27,14 @@ public class AnswerServiceImpl implements AnswerService {
     }
 
     @Override
+    public AnswerDTO saveAnswerByQuestionId(AnswerDTO answerDTO, int questionId) {
+        Answer a = AnswerMapper.INSTANCE.answerDTOToAnswer(answerDTO);
+        answerRepo.save(a);
+        answerDTO.setId(a.getId());
+        return answerDTO;
+    }
+
+    @Override
     public List<AnswerDTO> getByQuestionId(int id) {
 
         List<Answer> answers = answerRepo.getByQuestionId(id);
@@ -38,6 +42,8 @@ public class AnswerServiceImpl implements AnswerService {
         answersDTOList = AnswerMapper.INSTANCE.answerListToAnswerDTOList(answers);
         return answersDTOList;
     }
+
+
 
     @Override
     public List<AnswerDTO> getAll() {
@@ -50,11 +56,7 @@ public class AnswerServiceImpl implements AnswerService {
     @Override
     public List<Answer> getByAnswerId(int id) {
         return null;
-        //  return answerRepo.getByAnswerId(id);
-      /*  AnswerDTO dto = fgbfdg;
-        list.foreach((item) -> {
-            dto.question = item.ques
-        })*/
+
     }
 
 

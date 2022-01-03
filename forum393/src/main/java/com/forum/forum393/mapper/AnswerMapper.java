@@ -5,6 +5,7 @@ import com.forum.forum393.model.Answer;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.List;
 

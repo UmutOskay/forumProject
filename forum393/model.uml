@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.forum.forum393.model</OriginalElement>
+  <nodes>
+    <node x="74.75" y="0.0">com.forum.forum393.model.Comment</node>
+    <node x="50.75" y="241.0">com.forum.forum393.model.Answer</node>
+    <node x="55.75" y="494.0">com.forum.forum393.model.User</node>
+    <node x="50.75" y="691.0">com.forum.forum393.model.Question</node>
+    <node x="55.75" y="1040.0">com.forum.forum393.model.Tag</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.forum.forum393.model.User" target="com.forum.forum393.model.Answer" relationship="DEPENDENCY">
+      <point x="46.0" y="-72.5" />
+      <point x="193.75" y="472.0" />
+      <point x="285.0" y="472.0" />
+      <point x="285.0" y="462.0" />
+      <point x="250.25" y="462.0" />
+      <point x="250.25" y="452.0" />
+      <point x="196.25" y="452.0" />
+      <point x="48.5" y="94.5" />
+    </edge>
+    <edge source="com.forum.forum393.model.Answer" target="com.forum.forum393.model.User" relationship="DEPENDENCY">
+      <point x="48.5" y="94.5" />
+      <point x="196.25" y="452.0" />
+      <point x="250.25" y="452.0" />
+      <point x="250.25" y="462.0" />
+      <point x="285.0" y="462.0" />
+      <point x="285.0" y="472.0" />
+      <point x="193.75" y="472.0" />
+      <point x="46.0" y="-72.5" />
+    </edge>
+    <edge source="com.forum.forum393.model.Answer" target="com.forum.forum393.model.Comment" relationship="TO_MANY">
+      <point x="-48.5" y="-94.5" />
+      <point x="99.25" y="220.0" />
+      <point x="23.572222222222223" y="220.0" />
+      <point x="23.572222222222223" y="210.0" />
+      <point x="111.25" y="210.0" />
+      <point x="-36.5" y="94.5" />
+    </edge>
+    <edge source="com.forum.forum393.model.Answer" target="com.forum.forum393.model.Question" relationship="DEPENDENCY">
+      <point x="48.5" y="94.5" />
+      <point x="196.25" y="452.0" />
+      <point x="250.25" y="452.0" />
+      <point x="250.25" y="660.0" />
+      <point x="242.42777777777778" y="660.0" />
+      <point x="242.42777777777778" y="670.0" />
+      <point x="196.25" y="670.0" />
+      <point x="48.5" y="-149.5" />
+    </edge>
+    <edge source="com.forum.forum393.model.Question" target="com.forum.forum393.model.Answer" relationship="DEPENDENCY">
+      <point x="48.5" y="-149.5" />
+      <point x="196.25" y="670.0" />
+      <point x="242.42777777777778" y="670.0" />
+      <point x="242.42777777777778" y="660.0" />
+      <point x="250.25" y="660.0" />
+      <point x="250.25" y="452.0" />
+      <point x="196.25" y="452.0" />
+      <point x="48.5" y="94.5" />
+    </edge>
+    <edge source="com.forum.forum393.model.User" target="com.forum.forum393.model.Answer" relationship="TO_MANY">
+      <point x="-46.0" y="-72.5" />
+      <point x="101.75" y="472.0" />
+      <point x="10.5" y="472.0" />
+      <point x="10.5" y="462.0" />
+      <point x="45.25" y="462.0" />
+      <point x="45.25" y="452.0" />
+      <point x="99.25" y="452.0" />
+      <point x="-48.5" y="94.5" />
+    </edge>
+    <edge source="com.forum.forum393.model.Comment" target="com.forum.forum393.model.Answer" relationship="DEPENDENCY">
+      <point x="36.5" y="94.5" />
+      <point x="184.25" y="210.0" />
+      <point x="271.9277777777778" y="210.0" />
+      <point x="271.9277777777778" y="220.0" />
+      <point x="196.25" y="220.0" />
+      <point x="48.5" y="-94.5" />
+    </edge>
+    <edge source="com.forum.forum393.model.Question" target="com.forum.forum393.model.Answer" relationship="TO_MANY">
+      <point x="-48.5" y="-149.5" />
+      <point x="99.25" y="670.0" />
+      <point x="53.07222222222222" y="670.0" />
+      <point x="53.07222222222222" y="660.0" />
+      <point x="45.25" y="660.0" />
+      <point x="45.25" y="452.0" />
+      <point x="99.25" y="452.0" />
+      <point x="-48.5" y="94.5" />
+    </edge>
+    <edge source="com.forum.forum393.model.Answer" target="com.forum.forum393.model.Comment" relationship="DEPENDENCY">
+      <point x="48.5" y="-94.5" />
+      <point x="196.25" y="220.0" />
+      <point x="271.9277777777778" y="220.0" />
+      <point x="271.9277777777778" y="210.0" />
+      <point x="184.25" y="210.0" />
+      <point x="36.5" y="94.5" />
+    </edge>
+    <edge source="com.forum.forum393.model.Answer" target="com.forum.forum393.model.Question" relationship="TO_ONE">
+      <point x="-48.5" y="94.5" />
+      <point x="99.25" y="452.0" />
+      <point x="45.25" y="452.0" />
+      <point x="45.25" y="660.0" />
+      <point x="53.07222222222222" y="660.0" />
+      <point x="53.07222222222222" y="670.0" />
+      <point x="99.25" y="670.0" />
+      <point x="-48.5" y="-149.5" />
+    </edge>
+    <edge source="com.forum.forum393.model.User" target="com.forum.forum393.model.Question" relationship="TO_MANY">
+      <point x="-46.0" y="72.5" />
+      <point x="101.75" y="660.0" />
+      <point x="53.07222222222222" y="660.0" />
+      <point x="53.07222222222222" y="670.0" />
+      <point x="99.25" y="670.0" />
+      <point x="-48.5" y="-149.5" />
+    </edge>
+    <edge source="com.forum.forum393.model.Comment" target="com.forum.forum393.model.User" relationship="TO_ONE">
+      <point x="-36.5" y="94.5" />
+      <point x="111.25" y="210.0" />
+      <point x="23.572222222222223" y="210.0" />
+      <point x="23.572222222222223" y="220.0" />
+      <point x="10.5" y="220.0" />
+      <point x="10.5" y="472.0" />
+      <point x="101.75" y="472.0" />
+      <point x="-46.0" y="-72.5" />
+    </edge>
+    <edge source="com.forum.forum393.model.Answer" target="com.forum.forum393.model.User" relationship="TO_ONE">
+      <point x="-48.5" y="94.5" />
+      <point x="99.25" y="452.0" />
+      <point x="45.25" y="452.0" />
+      <point x="45.25" y="462.0" />
+      <point x="10.5" y="462.0" />
+      <point x="10.5" y="472.0" />
+      <point x="101.75" y="472.0" />
+      <point x="-46.0" y="-72.5" />
+    </edge>
+    <edge source="com.forum.forum393.model.Comment" target="com.forum.forum393.model.Answer" relationship="TO_ONE">
+      <point x="-36.5" y="94.5" />
+      <point x="111.25" y="210.0" />
+      <point x="23.572222222222223" y="210.0" />
+      <point x="23.572222222222223" y="220.0" />
+      <point x="99.25" y="220.0" />
+      <point x="-48.5" y="-94.5" />
+    </edge>
+    <edge source="com.forum.forum393.model.Question" target="com.forum.forum393.model.Comment" relationship="TO_MANY">
+      <point x="-48.5" y="-149.5" />
+      <point x="99.25" y="670.0" />
+      <point x="53.07222222222222" y="670.0" />
+      <point x="53.07222222222222" y="660.0" />
+      <point x="0.0" y="660.0" />
+      <point x="0.0" y="220.0" />
+      <point x="23.572222222222223" y="220.0" />
+      <point x="23.572222222222223" y="210.0" />
+      <point x="111.25" y="210.0" />
+      <point x="-36.5" y="94.5" />
+    </edge>
+    <edge source="com.forum.forum393.model.Comment" target="com.forum.forum393.model.Question" relationship="TO_ONE">
+      <point x="-36.5" y="94.5" />
+      <point x="111.25" y="210.0" />
+      <point x="23.572222222222223" y="210.0" />
+      <point x="23.572222222222223" y="220.0" />
+      <point x="0.0" y="220.0" />
+      <point x="0.0" y="660.0" />
+      <point x="53.07222222222222" y="660.0" />
+      <point x="53.07222222222222" y="670.0" />
+      <point x="99.25" y="670.0" />
+      <point x="-48.5" y="-149.5" />
+    </edge>
+    <edge source="com.forum.forum393.model.Question" target="com.forum.forum393.model.Tag" relationship="TO_MANY">
+      <point x="48.5" y="149.5" />
+      <point x="196.25" y="1015.0" />
+      <point x="193.75" y="1015.0" />
+      <point x="46.0" y="-61.5" />
+    </edge>
+    <edge source="com.forum.forum393.model.Tag" target="com.forum.forum393.model.Question" relationship="TO_MANY">
+      <point x="46.0" y="-61.5" />
+      <point x="193.75" y="1015.0" />
+      <point x="196.25" y="1015.0" />
+      <point x="48.5" y="149.5" />
+    </edge>
+    <edge source="com.forum.forum393.model.Comment" target="com.forum.forum393.model.User" relationship="DEPENDENCY">
+      <point x="36.5" y="94.5" />
+      <point x="184.25" y="210.0" />
+      <point x="271.9277777777778" y="210.0" />
+      <point x="271.9277777777778" y="220.0" />
+      <point x="285.0" y="220.0" />
+      <point x="285.0" y="472.0" />
+      <point x="193.75" y="472.0" />
+      <point x="46.0" y="-72.5" />
+    </edge>
+    <edge source="com.forum.forum393.model.Comment" target="com.forum.forum393.model.Question" relationship="DEPENDENCY">
+      <point x="36.5" y="94.5" />
+      <point x="184.25" y="210.0" />
+      <point x="271.9277777777778" y="210.0" />
+      <point x="271.9277777777778" y="220.0" />
+      <point x="295.5" y="220.0" />
+      <point x="295.5" y="660.0" />
+      <point x="242.42777777777778" y="660.0" />
+      <point x="242.42777777777778" y="670.0" />
+      <point x="196.25" y="670.0" />
+      <point x="48.5" y="-149.5" />
+    </edge>
+    <edge source="com.forum.forum393.model.Question" target="com.forum.forum393.model.Comment" relationship="DEPENDENCY">
+      <point x="48.5" y="-149.5" />
+      <point x="196.25" y="670.0" />
+      <point x="242.42777777777778" y="670.0" />
+      <point x="242.42777777777778" y="660.0" />
+      <point x="295.5" y="660.0" />
+      <point x="295.5" y="220.0" />
+      <point x="271.9277777777778" y="220.0" />
+      <point x="271.9277777777778" y="210.0" />
+      <point x="184.25" y="210.0" />
+      <point x="36.5" y="94.5" />
+    </edge>
+    <edge source="com.forum.forum393.model.Tag" target="com.forum.forum393.model.Question" relationship="DEPENDENCY">
+      <point x="-46.0" y="-61.5" />
+      <point x="101.75" y="1015.0" />
+      <point x="99.25" y="1015.0" />
+      <point x="-48.5" y="149.5" />
+    </edge>
+    <edge source="com.forum.forum393.model.Question" target="com.forum.forum393.model.Tag" relationship="DEPENDENCY">
+      <point x="-48.5" y="149.5" />
+      <point x="99.25" y="1015.0" />
+      <point x="101.75" y="1015.0" />
+      <point x="-46.0" y="-61.5" />
+    </edge>
+    <edge source="com.forum.forum393.model.User" target="com.forum.forum393.model.Question" relationship="DEPENDENCY">
+      <point x="46.0" y="72.5" />
+      <point x="193.75" y="660.0" />
+      <point x="242.42777777777778" y="660.0" />
+      <point x="242.42777777777778" y="670.0" />
+      <point x="196.25" y="670.0" />
+      <point x="48.5" y="-149.5" />
+    </edge>
+    <edge source="com.forum.forum393.model.Question" target="com.forum.forum393.model.User" relationship="DEPENDENCY">
+      <point x="48.5" y="-149.5" />
+      <point x="196.25" y="670.0" />
+      <point x="242.42777777777778" y="670.0" />
+      <point x="242.42777777777778" y="660.0" />
+      <point x="193.75" y="660.0" />
+      <point x="46.0" y="72.5" />
+    </edge>
+    <edge source="com.forum.forum393.model.Question" target="com.forum.forum393.model.User" relationship="TO_ONE">
+      <point x="-48.5" y="-149.5" />
+      <point x="99.25" y="670.0" />
+      <point x="53.07222222222222" y="670.0" />
+      <point x="53.07222222222222" y="660.0" />
+      <point x="101.75" y="660.0" />
+      <point x="-46.0" y="72.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.45900253592561285" showDependencies="true" x="148.0" y="581.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

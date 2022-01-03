@@ -1,8 +1,11 @@
 package com.forum.forum393.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.forum.forum393.model.Comment;
 import com.forum.forum393.model.Question;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+import javax.persistence.CascadeType;
 import java.util.List;
 
 public class AnswerDTO {
@@ -11,8 +14,10 @@ public class AnswerDTO {
     private int voteCount;
     private UserDTO user;
     private String text;
-   /* private Question question;
-    private List<Comment> comments;*/
+
+    @JsonIgnore
+    private Question question;
+   // private List<Comment> comments;
 
     public String getText() {
         return text;
@@ -45,7 +50,7 @@ public class AnswerDTO {
     public void setUser(UserDTO userDTO) {
         this.user = userDTO;
     }
-/*
+
     public Question getQuestion() {
         return question;
     }
@@ -53,7 +58,7 @@ public class AnswerDTO {
     public void setQuestion(Question question) {
         this.question = question;
     }
-
+/*
     public List<Comment> getComments() {
         return comments;
     }

@@ -1,5 +1,6 @@
 package com.forum.forum393.service;
 
+import com.forum.forum393.dto.AnswerDTO;
 import com.forum.forum393.dto.CommentDTO;
 import com.forum.forum393.model.Comment;
 import com.forum.forum393.repository.CommentRepo;
@@ -17,6 +18,16 @@ public interface CommentService {
     List<CommentDTO> getAll();
 
     void deleteById(int id);
+
+    CommentDTO saveCommentByQuestionId(CommentDTO data, int questionId);
+
+    CommentDTO saveCommentByAnswerId(CommentDTO data, int answerId);
+
+    void deleteComment(Comment comment, int id);
+
+
+
+
 /*
     void deleteCommentById(Integer id);
     void deleteCommentWithQuestionId(Integer question_id);

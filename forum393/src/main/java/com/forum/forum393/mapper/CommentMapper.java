@@ -5,6 +5,7 @@ import com.forum.forum393.model.Comment;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.List;
 
@@ -28,6 +29,13 @@ public interface CommentMapper {
   //  @Mapping(source = "answer", target = "answer")
    // @Mapping(source = "user", target = "user")
     List<CommentDTO> commentListToCommentDTOList(List<Comment> comment);
+
+
+    @Mapping(source = "id", target = "id")
+    @Mapping(source = "text", target = "text")
+    //  @Mapping(source = "writer", target = "writer")
+    @Mapping(source = "date", target = "date")
+    Comment commentDTOToComment(CommentDTO commentDTO);
 
 
 }

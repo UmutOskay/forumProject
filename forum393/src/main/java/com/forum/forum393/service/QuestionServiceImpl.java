@@ -7,7 +7,6 @@ import com.forum.forum393.repository.QuestionRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -23,11 +22,7 @@ public class QuestionServiceImpl implements QuestionService {
         questionRepo.save(q);
         questionDTO.setId(q.getId());
         return questionDTO;
-
     }
-
-
-
 
     public List<QuestionDTO> getAll() {
         List<Question> questions = questionRepo.findAll();
@@ -35,7 +30,6 @@ public class QuestionServiceImpl implements QuestionService {
         qDtoList = QuestionMapper.INSTANCE.questionListToQuestionDTOList(questions);
         return qDtoList;
     }
-
 
     public QuestionDTO getById(int id) {
 

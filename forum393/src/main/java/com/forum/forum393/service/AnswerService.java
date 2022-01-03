@@ -13,9 +13,11 @@ import java.util.List;
 public interface AnswerService {
 
     AnswerDTO save(AnswerDTO answer);
+    AnswerDTO saveAnswerByQuestionId(AnswerDTO answer,int questionId);
     List<Answer> getByAnswerId(int id);
     void deleteAnswerById(Integer answer_id);
     AnswerDTO getByQuestionIdAndAnswerId(int questionId,int answerId);
+
 
 
     List<AnswerDTO> getByQuestionId(int id);

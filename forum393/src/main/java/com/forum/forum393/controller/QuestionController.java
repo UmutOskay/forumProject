@@ -7,10 +7,12 @@ import com.forum.forum393.model.Answer;
 import com.forum.forum393.model.Comment;
 import com.forum.forum393.model.Question;
 import com.forum.forum393.model.Tag;
+import com.forum.forum393.repository.AnswerRepo;
+import com.forum.forum393.repository.QuestionRepo;
 import com.forum.forum393.service.AnswerService;
 import com.forum.forum393.service.CommentService;
 import com.forum.forum393.service.QuestionService;
-
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +20,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/questions") // questionın commentleri answer ın commentleri sadece
+//@RequestMapping("/api")
 public class QuestionController {
 
     @Autowired
@@ -28,6 +31,12 @@ public class QuestionController {
 
     @Autowired
     CommentService commentService;
+
+    @Autowired
+    AnswerRepo answerRepo;
+
+    @Autowired
+    QuestionRepo questionRepo;
 
 
 
@@ -78,4 +87,25 @@ public class QuestionController {
 
         return questionService.save(data);
     }
+
+    @PostMapping("/{question-id}/answers") //it also do the update job if we write the existing id of answer
+    public AnswerDTO saveAnswer(@RequestBody AnswerDTO data, @PathVariable("question-id") int questionId ){
+        data.setQuestion(questionRepo.getById(questionId));
+        return answerService.saveAnswerByQuestionId(data,questionId);
+    }
+
+    @PostMapping("/{question-id}/comments") //it also do the update job if we write the existing id of comment
+    public CommentDTO saveAnswer(@RequestBody CommentDTO data, @PathVariable("question-id") int questionId ){
+        data.setQuestion(questionRepo.getById(questionId));
+        return commentService.saveCommentByQuestionId(data,questionId);
+    }
+
+    @PutMapping()
+    public void changeVote(int vote){
+        questionService.getById(vote).setId(vote);
+    }
+
+
+
+
 }

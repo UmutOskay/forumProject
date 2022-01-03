@@ -1,9 +1,10 @@
 package com.forum.forum393.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.forum.forum393.model.Answer;
 import com.forum.forum393.model.Question;
 import com.forum.forum393.model.User;
-
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 public class CommentDTO {
 
@@ -11,8 +12,11 @@ public class CommentDTO {
     private String text;
     private UserDTO writer;
     private String date;
-    //  private Question question;
-    //private Answer answer;
+
+    @JsonIgnore
+    private Question question;
+    @JsonIgnore
+    private Answer answer;
     //private User user;
 
     public int getId() {
@@ -47,7 +51,7 @@ public class CommentDTO {
         this.date = date;
     }
 
-   /* public Question getQuestion() {
+    public Question getQuestion() {
         return question;
     }
 
@@ -62,7 +66,7 @@ public class CommentDTO {
     public void setAnswer(Answer answer) {
         this.answer = answer;
     }
-
+/*
     public User getUser() {
         return user;
     }

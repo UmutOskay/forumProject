@@ -167,17 +167,17 @@ class Forum393ApplicationTests {
 
 
 		comment.setQuestion(question);
-		comment2.setQuestion(question);
+	//	comment2.setQuestion(question);
 		comment3.setQuestion(question);
-		comment4.setQuestion(question2);
+	//	comment4.setQuestion(question2);
 		comment5.setQuestion(question2);
-		comment6.setQuestion(question2);
+	//	comment6.setQuestion(question2);
 
-		comment.setAnswer(answer);
+	//	comment.setAnswer(answer);
 		comment2.setAnswer(answer2);
-		comment3.setAnswer(answer3);
+	//	comment3.setAnswer(answer3);
 		comment4.setAnswer(answer4);
-		comment5.setAnswer(answer5);
+	//	comment5.setAnswer(answer5);
 		comment6.setAnswer(answer6);
 
 
@@ -203,12 +203,12 @@ class Forum393ApplicationTests {
 		user2.setAnswers(answers2);
 		user2.setQuestions(questions2);
 
-		for(int i = 0; i < answers.size();i++) {
+	/*	for(int i = 0; i < answers.size();i++) {
 			question.getAnswers().get(i).setUser(question.getUser());
 		}
 		for(int i = 0; i < answers2.size();i++) {
 			question2.getAnswers().get(i).setUser(question2.getUser());
-		}
+		}*/
 
 
 		Tag tag = new Tag();
@@ -225,6 +225,10 @@ class Forum393ApplicationTests {
 		tags2.add(tag4);
 		tags2.add(tag3);
 
+		tag.setName("tag1");
+		tag2.setName("tag2");
+		tag3.setName("tag3");
+		tag4.setName("tag4");
 
 		tag.setQuestions(questions);
 		question.setTags(tags);

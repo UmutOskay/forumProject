@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Entity
 @Table(name = "T_QUESTION")
 public class Question {
@@ -19,6 +19,14 @@ public class Question {
     private String description;
     @Column(name = "answerCount")
     private int answerCount;
+  /*  @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "answer_id")
+    private Answer answer;*/
+
+
+  /*  public void setAnswer(Answer answer) {
+        this.answer = answer;
+    }*/
 
     @Column(name = "voteCount")
     private int voteCount;
@@ -71,6 +79,10 @@ public class Question {
             inverseJoinColumns = @JoinColumn(name = "tag_id",
                     referencedColumnName = "id"))
     private List<Tag> tags = new ArrayList<Tag>();
+
+   /* public Answer getAnswer() {
+        return answer;
+    }*/
 
     public User getUser() {
         return user;

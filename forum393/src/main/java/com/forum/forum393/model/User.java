@@ -3,7 +3,7 @@ package com.forum.forum393.model;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Entity
 @Table(name = "T_User")
 public class User {

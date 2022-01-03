@@ -1,9 +1,10 @@
 package com.forum.forum393.dto;
 
 
+import com.forum.forum393.model.Answer;
 import com.forum.forum393.model.Tag;
 import com.forum.forum393.model.User;
-
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import java.util.List;
 
 public class QuestionDTO {
@@ -17,6 +18,7 @@ public class QuestionDTO {
     private UserDTO askedBy;
     private int answerCount;
     private int voteCount;
+    private Answer answer;
 
     public List<Tag> getTags() {
         return tags;

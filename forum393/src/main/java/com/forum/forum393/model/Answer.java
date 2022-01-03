@@ -1,7 +1,7 @@
 package com.forum.forum393.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +29,7 @@ public class Answer {
     private User user;
 
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "question_id")
     private Question question;
 

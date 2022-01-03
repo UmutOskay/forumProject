@@ -7,11 +7,12 @@ import com.forum.forum393.model.Question;
 import com.forum.forum393.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import java.util.List;
 
 @RestController
 @RequestMapping("/comments")
+//@RequestMapping("/api")
 public class CommentController {
     @Autowired
     CommentService commentService;
@@ -28,9 +29,10 @@ public class CommentController {
     }
 
 
-
+    /*
     @PostMapping
     public Comment saveComment(@RequestBody Comment data){
         return commentService.save(data);
     }
+    */
 }

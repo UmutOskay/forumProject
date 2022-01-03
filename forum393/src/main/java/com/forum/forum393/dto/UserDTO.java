@@ -1,4 +1,5 @@
 package com.forum.forum393.dto;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 public class UserDTO {
     private int id;

@@ -1,5 +1,5 @@
 package com.forum.forum393.model;
-
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import javax.persistence.*;
 
 @Entity

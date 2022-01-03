@@ -1,5 +1,7 @@
 package com.forum.forum393.repository;
 
+import com.forum.forum393.dto.AnswerDTO;
+import com.forum.forum393.dto.CommentDTO;
 import com.forum.forum393.model.Comment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -16,6 +18,9 @@ public interface CommentRepo extends JpaRepository<Comment, Integer> {
 
     @Query("select a from Comment a inner join a.question i where i.id=?1 and a.id=?2")
     Comment getByQuestionIdAndCommentId(int questionId,int commentId);
+
+    @Query("select a from Comment a inner join a.question i where i.id=?1 and a.id=?2")
+    CommentDTO saveCommentByQuestionId(CommentDTO data, int questionId);
     /*  @Modifying
     @Query("delete from Comment c where c.answer.question.id = ?1")
     @Transactional
